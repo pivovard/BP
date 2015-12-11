@@ -11,36 +11,97 @@
 \title{Tabletová aplikace pro jednotku intenzivní péče}
 \author{David Pivovar A13B0403P}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%Makra%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Tato makra přesvědčují mírně ošklivým trikem LaTeX, aby hlavičky kapitol
+% sázel příčetněji a nevynechával nad nimi spoustu místa. Směle ignorujte.
+\makeatletter
+\def\@makechapterhead#1{
+  {\parindent \z@ \raggedright \normalfont
+   \Huge\bfseries \thechapter. #1
+   \par\nobreak
+   \vskip 20\p@
+}}
+\def\@makeschapterhead#1{
+  {\parindent \z@ \raggedright \normalfont
+   \Huge\bfseries #1
+   \par\nobreak
+   \vskip 20\p@
+}}
+\makeatother
+
+% Toto makro definuje kapitolu, která není očíslovaná, ale je uvedena v obsahu.
+\def\chapwithtoc#1{
+\chapter*{#1}
+\addcontentsline{toc}{chapter}{#1}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%Zacatek dokumentu%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
-
-%%%%%Titulni strana%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%Titulni strana%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{titlepage}
 
-\begin{top}
-asss
-\end{top}
-
-\vfill
-
 \begin{center}
-	{\large KIV/PC - Semestrální práce\\[0.3cm]}
-	{\huge Klasifikace textu do kategorií spam/nespam \\[1.7cm] }
+	
+	{\fontsize{22}{} \selectfont
+		Západočeská univerzita v Plzni\\
+		Fakulta aplikovanch věd\\
+		Katedra informatiky a výpočetní techniky\\
+	}
+	
+	\vfill
+	\vfill
+	
+	{\fontsize{28}{} \textbf{
+		Projekt 5\\
+	}}
+	
+	\vfill
+	
+	{\fontsize{36}{} \textbf{
+		Tabletová aplikace\\pro jednotku intenzivní péče
+	}}
+
 \end{center}
 
 \vfill
+\vfill
+\vfill
+\vfill
 
 \begin{flushleft}
-	{\large \textbf{David Pivovar}\\}
-	{\large A13B0403P}
-	\hfill
-	{\large \today}
+
+	{\fontsize{16}{} \selectfont
+		Plzeň, \today
+		\hfill
+		David Pivovar
+	}
+	
 \end{flushleft}
 
 \end{titlepage}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+%\setcounter{page}{0}
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%Kapitoly%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{uvod}
+\include{ch1_winmedicalc}
+\include{ch2_navrhGUI}
+%\include{ch3_implementace}
+%\include{ch4_test}
+%\include{manual}
+\include{zaver}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \end{document}
