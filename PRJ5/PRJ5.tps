@@ -17,8 +17,8 @@ Class=LaTeXView
 Document=PRJ5.tex
 
 [Frame0_View0,0]
-TopLine=73
-Cursor=2126
+TopLine=0
+Cursor=1523
 
 [Frame1]
 Flags=0
@@ -53,8 +53,8 @@ Class=LaTeXView
 Document=chapters\ch1_FNplzen.tex
 
 [Frame2_View0,0]
-TopLine=37
-Cursor=3895
+TopLine=52
+Cursor=3523
 
 [Frame3]
 Flags=0
@@ -72,7 +72,7 @@ Document=chapters\ch2_technicke_parametry.tex
 
 [Frame3_View0,0]
 TopLine=0
-Cursor=217
+Cursor=179
 
 [Frame4]
 Flags=0
@@ -112,5 +112,5 @@ Cursor=326
 
 [SessionInfo]
 FrameCount=6
-ActiveFrame=4
+ActiveFrame=0
 

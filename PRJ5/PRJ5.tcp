@@ -6,7 +6,7 @@ Version=4
 MainFile=PRJ5.tex
 UseBibTeX=0
 UseMakeIndex=0
-ActiveProfile=LaTeX ⇨ DVI ⇨ PDF
+ActiveProfile=LaTeX ⇨ DVI
 ProjectLanguage=en
 ProjectDialect=US
 
