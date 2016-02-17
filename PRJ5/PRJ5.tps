@@ -17,8 +17,8 @@ Class=LaTeXView
 Document=PRJ5.tex
 
 [Frame0_View0,0]
-TopLine=0
-Cursor=1523
+TopLine=75
+Cursor=2124
 
 [Frame1]
 Flags=0
