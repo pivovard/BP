@@ -6,28 +6,30 @@ Tato kapitola se zabývá obecným popisem prostředí jednotky intenzivní pé�
 
 \section{Práce zdravotních sester}
 
-Práce zdravotních sester je ve stresujícím prostředí. Obvzlášť tomu je na jednotce intenzivní péče, kde se musí rychle reagovat na změny stavu pacientů a kde se nesmí dělat žádné chyby. Tomu musí být přizpůsobená i vyvíjená aplikace. Její ovládání musí být jednoduché a intuitivní, aby práce s ní byla efektivní.
+Práce zdravotních sester v nemocnici je náročná a vyžaduje zodpovědnost. Sestry musí být pečlivé a nedělat chyby, které by mohli ohrozit zdravotní stav pacienta. Obvzlášť tomu je na jednotkách intenzivní péče, kde musí rychle reagovat na změny stavu pacientů. Tomu musí být přizpůsobená i vyvíjená aplikace. Její ovládání musí být jednoduché a intuitivní, aby práce s ní byla efektivní.
 
-Zdravotní sestry na jednotce intenzivní péče často pracují v latexových rukavicích. Tomu by mělo odpovídat i uživatelské rozhraní. Jednotlivé komponenty by měly proto být dostatečně veliké, aby nedocházelo ke zbytečným překlepům. Je třeba počítat i s tím, že některá zdravotní sestra může mít zrakovou vadu. Neustálé nasazování brýlý by ji poté zdržovalo od práce. Také proto je nutné použít dostatečně velké komponenty a písmo.
+Zdravotní sestry na jednotce intenzivní péče často pracují v latexových rukavicích. Tomu by mělo odpovídat i uživatelské rozhraní. Jednotlivé komponenty by měly proto být dostatečně veliké, aby nedocházelo ke zbytečným překlepům. Je třeba počítat i s tím, že některá zdravotní sestra může mít zrakovou vadu. Neustálé nasazování brýlí by ji poté zdržovalo od práce. Také proto je nutné použít dostatečně velké komponenty a písmo.
+
+Způsob práce a zápisu dat se na jednotlivých odděleních nemocnice liší dle jejich zvyklostí. Proto je nutné udržovat data v konzistentní formě. K tomu ve FN Plzeň slouží program WinMedicalc.
 
 \section{WinMedicalc}
 
 WinMedicalc je nemocniční informační systém, který usnadňuje a zrychluje vytváření lékařské dokumentace. Dále zajišťuje vykazování zdravotní péče a uchovávání dat v jednotné struktuře. Také obsahuje nástroje z oblasti managementu.
 
-Každý pracovník FN Plzeň má osobní přístup této aplikace s povolénými funkcemi vzhledem k pracovní pozici.
+Každý pracovník FN Plzeň je v nemocniční databázi. Na základě vlastního uživatelského jména a hesla má přístup do aplikace WinMedicalc s povolenými funkcemi vzhledem k jeho pracovní pozici.
 
 \subsection{Ordinované léky}
 
-Karta ordinovaných léků slouží k evidenci podávaných léků u pacienta. Lékař zde zadává léky, které se se pacientovi mají podávat. Ke každému léku doplňje množství, kolikrát denně a od kdy do kdy se má lék podávat (viz obrázek \ref{fig:WM_ordinovane_leky}).
+Karta ordinovaných léků slouží k evidenci podávaných léků u pacienta. Lékař zde zadává léky, které se pacientovi mají podávat. Ke každému léku doplňje množství, kolikrát denně a od kdy do kdy se má lék podávat (viz obrázek \ref{fig:WM_ordinovane_leky}).
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{img/medicalc/WM_ordinovane_leky.eps}
-	\caption{Ordinované léky}
+	\caption{Ordinované léky (WinMedicalc)}
   \label{fig:WM_ordinovane_leky}
 \end{figure}
 
-Medikační karta se poté vytiskne na papír do tabulky s vynačenými hodinami. Tabulka nezačíná od půlnoci, ale od hodiny, kterou mají na oddělení nastavenou jako začátek dne (obvykle to bývá 6-7 hodina).
+Medikační karta pro každého pacienta se poté vytiskne na papír do tabulky s vyznačenými hodinami. Tabulka nezačíná od půlnoci, ale od hodiny, kterou mají na oddělení nastavenou jako začátek dne (obvykle to bývá 6-7 hodina). Zdravotní sestry poté podle medikační karty podávají předepsané léky jednotlivým pacientům.
 
 Medikační kartu musí vždy před vytištěním schválit lékař. Pokud to nestihne do začátku dne, vytiskne se karta z předchozího dne. Zdravotní sestry pak podávají léky podle této karty do doby, než se schválí a vytiskne nová medikační karta. Překrývající se údaje poté přepíší.
 
@@ -38,30 +40,29 @@ V bilanci tekutin se zaznamenává příjem a výdej veškerých tekutin pacient
 \begin{figure}[H]
 	\centering
 	\includegraphics{img/medicalc/WM_bilance_tekutin.eps}
-	\caption{Bilance tekutin}
+	\caption{Bilance tekutin (WinMedicalc)}
   \label{fig:WM_bilance_tekutin}
 \end{figure}
 
 
-Příjem a výdej tekutin se odečítá během dne několikrát, ke každé tekutině tedy během dne bude několik hodnot. Všechny hodnoty se ukládají do databáze, aby bylo možné sledovat jejich vývoj.
+Příjem a výdej tekutin se odečítají zdravotní sestry během dne několikrát, ke každé tekutině tedy během dne bude několik hodnot. Všechny hodnoty se ukládají do databáze, aby bylo možné sledovat jejich vývoj.
 
 Zdravotní sestry zaznamenávají příjem a výdej tekutin na papír. Na konci dne přepíší údaje do WinMedicalcu.
 
 \subsection{Invazivní přístupy}
 
-Každý pacient může mít zaveden libovolný počet různých invazivních přístupů. Jedná se o katetry nebo drény. Každý invazivní přístup má vlastní specifikaci (číslo, název, umístění, hloubku zavedení, datum zavedení a počet dnů zavedení). Určité invazivní přístupy lze nechat zavedeny v pacientovy pouze po určitý počet dní. Proto každý invazivní přístup lze označit požadavkem na výměnu nebo jako vyměněný. Také lze invazivní přístup odebrat pokud byl pacientovi vyndán. Rozložení karty invazivní přístupů je na obrázku \ref{fig:WM_invazivni_pristupy}.
+Každý pacient může mít zaveden libovolný počet různých invazivních přístupů. Jedná se o katetry nebo drény. Každý invazivní přístup má vlastní specifikaci (číslo, název, umístění, hloubku zavedení, datum zavedení a počet dnů zavedení). Určité invazivní přístupy lze nechat v pacientovi zavedeny pouze po určitý počet dní (dle lékářských předpisů). Poté se musí vyměnit za nové nebo odebrat. Proto lze každý invazivní přístup v aplikaci označit požadavkem na výměnu. Následně jej lékař buď vymění, ve WinMedicalcu aktualizuje datum zavedení na datum výměny, nebo odebere a smaže ho ze seznamu invazivních přístupů. Změny invazivních přístupů do WinMedicalcu většinou zadává zdravotní sestra. Rozložení karty invazivní přístupů je na obrázku \ref{fig:WM_invazivni_pristupy}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{img/medicalc/WM_invazivni_pristupy.eps}
-	\caption{Invazivní přístupy}
+	\caption{Invazivní přístupy (WinMedicalc)}
   \label{fig:WM_invazivni_pristupy}
 \end{figure}
 
-Zdravotní sestry mají vytištěn seznam invazivních přístupů, ve kterém si značí změny. Na konci dne přepíší provedené zmeny do WinMedicalcu.
 
 \subsection{Databáze}
 
 Ve FN Plzeň je rozsáhlá databáze od Oraclu. V ní se ukládají prakticky všechny záznamy, včetně záznamů o pracovnících FN Plzeň, záznamů o pacientech a klinických událostech. Tato data se využijí ve vyvíjené aplikaci.
 
-Jelikož přístup do databáze je pouze ve FN Plzeň, byla její část zkopírována do nového tablespace v Oracle databázi na ZČU.
+Jelikož přístup do databáze je pouze ve FN Plzeň, byla její část zkopírována do nového tablespace v Oracle databázi na ZČU. Tu jsme naplnili fiktivními testovacími daty, které odpovídají realným datům.
