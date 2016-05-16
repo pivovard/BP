@@ -12,13 +12,13 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1562
-NormalPos.bottom=853
+NormalPos.bottom=497
 Class=LaTeXView
 Document=PRJ5.tex
 
 [Frame0_View0,0]
-TopLine=0
-Cursor=1898
+TopLine=87
+Cursor=2267
 
 [Frame1]
 Flags=0
@@ -30,7 +30,7 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1562
-NormalPos.bottom=853
+NormalPos.bottom=497
 Class=LaTeXView
 Document=chapters\uvod.tex
 
@@ -48,13 +48,13 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1562
-NormalPos.bottom=853
+NormalPos.bottom=497
 Class=LaTeXView
 Document=chapters\ch1_FNplzen.tex
 
 [Frame2_View0,0]
-TopLine=0
-Cursor=4979
+TopLine=72
+Cursor=4985
 
 [Frame3]
 Flags=0
@@ -66,7 +66,7 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1562
-NormalPos.bottom=853
+NormalPos.bottom=497
 Class=LaTeXView
 Document=chapters\ch2_technicke_parametry.tex
 
@@ -84,13 +84,13 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1562
-NormalPos.bottom=853
+NormalPos.bottom=497
 Class=LaTeXView
 Document=chapters\ch3_navrhGUI.tex
 
 [Frame4_View0,0]
 TopLine=0
-Cursor=1006
+Cursor=653
 
 [Frame5]
 Flags=0
@@ -102,7 +102,7 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1562
-NormalPos.bottom=853
+NormalPos.bottom=497
 Class=LaTeXView
 Document=chapters\zaver.tex
 
@@ -112,5 +112,5 @@ Cursor=326
 
 [SessionInfo]
 FrameCount=6
-ActiveFrame=3
+ActiveFrame=0
 
