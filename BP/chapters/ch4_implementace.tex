@@ -1,0 +1,14 @@
+\chapter{Implementace}
+
+Grafické uživatelské rozhraní je implementováno knihovnou System.Windows.Forms. V aplikaci jsou dvě hlavní okna, jedno pro výběr pacienta a druhé s detailem vybraného pacienta a jednotlivými kartami. Okna s další funkčností jsou zobrazována jako dialogy.
+
+Po spuštění aplikace se zobrazí okno výběru pacientů s prázdným seznamem pacientů a dialog pro přihlášení. Pro práci s aplikací musí být uživatel přihlášen a mít pracovní poměr na pracovišti, na kterém se tablet nachází.
+
+
+\section{Přihlášení}
+
+Pro přihlášení slouží jednoduchý dialog s dvěma TextBoxy, pro zadání uživatelského jména a hesla, a dvěma Buttony pro přihlášení, nebo zrušení přihlášení. Znaky v TextBoxu pro heslo jsou nahrazeny symbolem *. Při úspěšném přihlášení se načtou údaje o uživateli a seznam pacientů na lůžkovém oddělení. Při neúspěšném se zobrazí chybová hláška a údaje z TextBoxů se vymažou.
+
+
+\section{Výběr pacienta}
+
