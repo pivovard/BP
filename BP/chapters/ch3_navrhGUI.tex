@@ -1,5 +1,3 @@
-\setlength{\parskip}{1em}
-
 \chapter{Návrh uživatelského rozhraní}
 
 Pro usnadnění práce s aplikací je vhodné co nejvíce přizpůsobit vzhled aplikace vzhledu WinMedicalcu, na který jsou pracovníci FN Plzeň zvyklí. Proto jsem zvolil pro grafické uživatelské rozhraní knihovnu WinForms\footnote{System.Windows.Forms} místo novějšího WPF\footnote{Windows Presentation Foundation}.
@@ -20,13 +18,13 @@ V horní části obrazovky bude menu s možností odhlášení uživatele a zobr
 
 \section{Detail pacienta}
 
-Po výběru pacienta se zobrazí obrazovka s jednotlivými kartami pacienta. Karty jsou Medikace, Denní bilance tekutin, Hodinová bilance tekutin a Invazivní přístupy. K dispozici bude vždy jen jedna varianta bilance tekutin dle oddělení, na kterém se tablet nachází (bude určeno v nastavení aplikace).
+Po výběru pacienta se zobrazí obrazovka s jednotlivými záložkami. Záložky jsou Medikace, Denní bilance tekutin, Hodinová bilance tekutin a Invazivní přístupy. K dispozici bude vždy jen jedna varianta bilance tekutin dle oddělení, na kterém se tablet nachází (bude určeno v nastavení aplikace).
 
 V dolní části obrazovky bude statusbar s informacemi o přihlášeném uživateli, vybraném pacientovi a verzí aplikace. Vpravo pak tlačítko pro návrat k výběru pacientů a tlačítko oprav.
 
 \subsection{Ordinované léky}
 
-Karta ordinovaných léků bude podobná tištěné medikační kartě. Jedná se o tabulku s názvem léku, předepsaným dávkováním a jednotlivými hodinami dávkování. V tabulce bude vyznačeno předepsané podání léku šedě a provedené podání léku zeleně s množstvím pro danou hodinu.
+Záložka ordinovaných léků bude podobná tištěné medikační kartě. Jedná se o tabulku s názvem léku, předepsaným dávkováním a jednotlivými hodinami dávkování. V tabulce bude vyznačeno předepsané podání léku šedě a provedené podání léku zeleně s množstvím pro danou hodinu.
 
 \subsection{Denní bilance tekutin}
 
@@ -40,13 +38,13 @@ Tato karta není ve WinMedicalcu.
 
 \subsection{Invazivní přístupy}
 
-Karta invazivních přístupů bude mít podobný vzhled jako ve WinMedicalcu. Každý invazivní přístup bude obsahovat číslo, název, umístění, hloubku zavedení, datum zavedení, počet dnů zavedení, specifikaci, materiál katetru či drénu, stav místa zavedení a tři tlačítka - požadavek na výměnu, výměna a zrušení invazivního přístupu.
+Záložka invazivních přístupů bude mít podobný vzhled jako ve WinMedicalcu. Každý invazivní přístup bude obsahovat číslo, název, umístění, hloubku zavedení, datum zavedení, počet dnů zavedení, specifikaci, materiál katetru či drénu, stav místa zavedení a tři tlačítka - požadavek na výměnu, výměna a zrušení invazivního přístupu.
 
 Jako poslední položka bude možnost přidání nového invazivního přístupu. Název, umístění a meteriál se bude vybírat ze seznamu. Datum bude nastaven na aktuální datum a počet dnů na 1. Číslo a hloubka zavedení bude číselná hodnota, specifikace a stav bude volně vypisovatelné. Tato položka bude mít pouze jedno tlačítko pro přidání.
 
 \subsection{Fyziologie}
 
-Karta fyziologie zobrazuje změřené životní funkce pacieta, tj. teplota, tep, STK\footnote{systoliský tlak krve}, DTK\footnote{diastoliský tlak krve}, frekvence dechu, a také výšku, hmotnost a vypočítané BMI\footnote{body mass index}. Jednotlivé položky bude možné upravovat (kromě BMI, které je spočteno automaticky), smazat, nebo přidat nový zázanam.
+Záložka fyziologie zobrazuje změřené životní funkce pacieta, tj. teplota, tep, STK\footnote{systoliský tlak krve}, DTK\footnote{diastoliský tlak krve}, frekvence dechu, a také výšku, hmotnost a vypočítané BMI\footnote{body mass index}. Jednotlivé položky bude možné upravovat (kromě BMI, které je spočteno automaticky), smazat, nebo přidat nový zázanam.
 
 \section{Opravy}
 
