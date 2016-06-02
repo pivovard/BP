@@ -4,20 +4,20 @@ Grafické uživatelské rozhraní je implementováno knihovnou System.Windows.Fo
 
 Aplikace musí být odolná proti neplatným vstupům. Veškeré zapisované hodnoty se musí kontrolovat na správný formát a rozsah. Proto není možné zapisovat do jednotlivých komponent pomocí systémové klávesnice, ale pouze klávesnicí aplikace (viz kapitola \ref{ch:dialogy}). Další kontrola je v logické vrstvě aplikace.
 
-V aplikaci jsou dvě hlavní okna, jedno pro výběr pacienta a druhé s detailem vybraného pacienta a jednotlivými kartami. Okna s další funkčností jsou zobrazována jako dialogy.
+V aplikaci jsou dvě hlavní okna, jedno pro výběr pacienta a druhé s detailem vybraného pacienta a jednotlivými záložkami. Okna s další funkčností jsou zobrazovány jako dialogy.
 
 Po spuštění aplikace se zobrazí okno výběru pacientů s prázdným seznamem pacientů a dialog pro přihlášení. Pro práci s aplikací musí být uživatel přihlášen a mít pracovní poměr na pracovišti, na kterém se tablet nachází.
 
 
 \section{Přihlášení}
 
-Pro přihlášení slouží jednoduchý dialog s dvěma TextBoxy, pro zadání uživatelského jména a hesla, a dvěma Buttony pro přihlášení a zrušení přihlášení. Uživatelské jméno ve FN Plzeň je vždy uppercase, proto jsou znaky v TextBoxu pro uživatelské jméno také uppercase. Znaky hesla jsou skryty symbolem *. Při úspěšném přihlášení se načtou údaje o uživateli a seznam pacientů na lůžkovém oddělení. Při neúspěšném se zobrazí chybová hláška a údaje z TextBoxů se vymažou.
+Pro přihlášení slouží jednoduchý dialog s dvěma TextBoxy, pro zadání uživatelského jména a hesla, a dvěma Buttony pro přihlášení a zrušení přihlášení. Uživatelské jméno ve FN Plzeň je vždy uppercase, proto jsou znaky v TextBoxu pro uživatelské jméno také uppercase. Znaky hesla jsou skryty symbolem *. Při úspěšném přihlášení se načtou údaje o uživateli a seznam pacientů na lůžkovém oddělení. Při neúspěšném přihlášení se zobrazí chybová hláška a údaje z TextBoxů se vymažou.
 
 Přihlašovací dialog je na obrázku \ref{fig:login}.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{img/meditab/login.eps}
+	\includegraphics[width=0.4\textwidth]{img/meditab/login.eps}
 	\caption{Přihlašovací dialog (MediTab)}
   \label{fig:login}
 \end{figure}
@@ -27,28 +27,34 @@ Přihlašovací dialog je na obrázku \ref{fig:login}.
 
 Po úspěšném přihlášení se zobrazí obrazovka se seznamem pacientů (viz obrázek \ref{fig:main}). Seznam pacientů je kolekce v ListView.
 
-V horní části je MenuStrip obsahující dvě položky. První je tlačítko pro odhlášení, které odhlásí aktuálního uživatele a zobrazí dialog pro přihlášení. Druhé tlačítko zobrazí nápovědu k aplikaci. Dole se nachází StatusStrip s informací o přihlášeném uživateli a verzí aplikace. Vravo je Button pro ukončení aplikace.
+V horní části je MenuStrip obsahující dvě položky. První je tlačítko pro odhlášení, které odhlásí aktuálního uživatele a zobrazí dialog pro přihlášení, druhé tlačítko zobrazí nápovědu k aplikaci. Dole se nachází StatusStrip s informací o přihlášeném uživateli a verzí aplikace. Vravo je Button pro ukončení aplikace.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{img/meditab/main.eps}
-	\caption{Výber pacienta (MediTab)}
+	\caption{Výběr pacienta (MediTab)}
   \label{fig:main}
 \end{figure}
 
 
-Vybráním pacienta kliknutím na řádek v ListView se začnou stahovat data o pacientovi z databáze, vytvářet a inicializovat jednotlivé záložky. Uživatele o stavu načítání informuje okno viz obrázek \ref{fig:load}.
+Vybráním pacienta kliknutím na řádek v ListView se začnou stahovat data o pacientovi z databáze, vytvářet a inicializovat jednotlivé záložky. Uživatele o stavu načítání informuje načítací okno (viz obrázek \ref{fig:load}).
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{img/meditab/loading.eps}
+	\caption{Načítací okno (MediTab)}
+  \label{fig:load}
+\end{figure}
 
 
 
 \section{Detail pacienta}
 
-Hlavní čásní okna detailu pacienta je TabControl pro snadné přepínání mezi jednotlivými záložkami (TabPage). Vpravo je Button pro návrat k výběru pacientů a Button pro zobrazení oprav. Při otevřené záložce denní nebo hodinové bilance tekutin je tam Button pro návrat k výběru pacientů bez uložení hodnot. Vespod je StatusStrip s informací o přihlášeném uživateli, vybraném pacientovi a verzí aplikace.
+Hlavní čásní okna detailu pacienta je TabControl pro snadné přepínání mezi jednotlivými záložkami (TabPage). Vpravo je Button pro návrat k výběru pacientů a Button pro zobrazení oprav. Při otevřené záložce denní nebo hodinové bilance tekutin je zde Button pro návrat k výběru pacientů bez uložení hodnot. Vespod je StatusStrip s informací o přihlášeném uživateli, vybraném pacientovi a verzí aplikace.
 
 \subsection{Ordinované léky}
 
-Tabulku ordinovaných léků tvoří dva DataGridView (viz obrázek \ref{fig:medikace}). Oba DataGridView mají synchronizované vertikální scrollování. Scrollováním v jednom se nastaví veritikální offset druhému.
+Tabulku ordinovaných léků tvoří dva DataGridView (viz obrázek \ref{fig:medikace}). Oba DataGridView mají synchronizované vertikální scrollování. Scrollováním jednoho se nastaví veritikální scrollovací offset druhému.
 
 \begin{figure}[H]
 	\centering
@@ -82,18 +88,18 @@ Dialog podání ordinací rozložením kopíruje dialog ve WinMedicalc (viz obr�
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{img/meditab/ordinace.eps}
+	\includegraphics[width=0.8\textwidth]{img/meditab/ordinace.eps}
 	\caption{Podání ordinací (MediTab)}
   \label{fig:ordinace}
 \end{figure}
 
 V prvním řádku je název léku a dávkování.
 
-V druhém řádku prvním sloupci je seznam ordinací daného léku v ListView, v druhém sloupci pak detail vybrané ordinace. Vybráním ordinace ze seznamu (FocusedIndex) se zobrazí její detail. Pokud se změní hodnota ordinace, při výběru jiné nebo zavření dialogu se současná uloží a případně se aktualizuje řádek v ListView.
+V druhém řádku prvním sloupci je seznam ordinací daného léku v ListView, v druhém sloupci pak detail vybrané ordinace. Vybráním ordinace ze seznamu (FocusedIndex) se zobrazí její detail. V případě, že se změní některá hodnota ordinace, se při výběru jiné nebo zavření dialogu současná uloží a případně se aktualizuje řádek v ListView.
 
-Změna hodin v DateTimePickerech nastane přejetím prstu po komponentě (přímá změna hodnoty není na tabletu vhodná). V okamžiku vstupu do místa DateTimePickeru se uloží y-ová souřadnice, v okamžiku kdy se komponenta opustí se hodina podle místa opuštění zvýší nebo sníží. Pokud ordinace nemá nastaveny vlastní jednotky, zobrazují se jednotky léku. Do poznámky lze zapisovat pouze pokud je stav ordinace nastaven na nepodáno.
+Změna hodin v DateTimePickerech nastane přejetím prstu po komponentě (přímá změna hodnoty není na tabletu vhodná). V okamžiku vstupu do místa DateTimePickeru se uloží y-ová souřadnice, v okamžiku kdy se komponenta opustí se hodina podle místa opuštění zvýší nebo sníží. Do poznámky lze zapisovat pouze pokud je stav ordinace nastaven na nepodáno. Pokud ordinace nemá nastaveny vlastní jednotky, zobrazují se jednotky léku.
 
-V posledním řádku jsou tlačítka na přidání nové ordinace, smazání ordinace a zavření dialogu. Button přidání ordinace vytvoří záznam v ListView ordinací, ale ordinace se uloží až při vybrání jiné ordinace nebo při zavření dialogu. Proto při mazání ordinace se zkontroluje zda je daná ordinace v paměti. Pokud ano, odešle se požadavek na smazání, pokud ne, odstraní se pouze z ListView. Při zavření dialogu proběhne kontrola, zda právě zobrazená ordinace nebyla změněna a případně se uloží.
+V posledním řádku jsou tlačítka na přidání nové ordinace, smazání ordinace a zavření dialogu. Button přidání ordinace vytvoří záznam v ListView ordinací, ordinace se uloží až při vybrání jiné ordinace nebo při zavření dialogu. Proto při mazání ordinace se zkontroluje zda je daná ordinace v paměti. Pokud ano, odešle se požadavek na smazání, pokud ne, odstraní se pouze z ListView. Při zavření dialogu proběhne kontrola, zda právě zobrazená ordinace nebyla změněna a případně se uloží.
 
 
 \subsubsection{Přidání nového léku}
@@ -103,19 +109,19 @@ Dialog na obrázku \ref{fig:medikace_pridat_lek} umožní sestře přidat nový 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{img/meditab/medikace_pridat_lek.eps}
+	\includegraphics[width=0.6\textwidth]{img/meditab/medikace_pridat_lek.eps}
 	\caption{Přidání nového léku (MediTab)}
   \label{fig:medikace_pridat_lek}
 \end{figure}
 
-V ComboBoxu se vybírá lék, který má být naordinován. Jelikož je léků velké množství a většina má více druhů balení, po napsání části názvu léku se v ComboBoxu zobrazí pouze léky obsahující tento text. V dávkování je uživatel k zápisu podle standartů nemocnice, které mohou být rozparsovatelné a následně graficky znázorněné v medikační kartě. Pokud uživatel zadá podání nekorektně nebo vůbec, je o tom informován a předepsání léku s nekorektním dávkováním musí potvrdit.
+V ComboBoxu se vybírá lék, který má být naordinován. Jelikož je léků velké množství a většina má více druhů balení, po napsání části názvu léku se v ComboBoxu zobrazí pouze léky obsahující tento text. V dávkování je uživatel motivován k zápisu podle standartů nemocnice, které mohou být rozparsovatelné a následně graficky znázorněné v medikační kartě. Pokud uživatel zadá podání nekorektně nebo vůbec, je o tom informován a předepsání léku s nekorektním dávkováním musí potvrdit.
 
 Po zavření dialogu se nový lék přidá na poslední řádku v medikační kartě.
 
 
 \subsection{Denní bilance tekutin}
 
-Záložka denní bilance tekutin (na obrázku \ref{fig:bilance_den}) zobrazuje bilanci tekutin za celý den. Je rozdělena SplitContainerem na tekutiny příjmu (zelená) a tekutiny výdeje (červená). Každá tekutina má dva TextBoxy, první zobrazuje celkovou hodnotu za den (lze zadat novou hodnotu větší než původní), v druhém lze přičíst nově naměřenou hodnotu. Poslední hodnotou je celkový součet příjmu a výdeje všech tekutin.
+Záložka denní bilance tekutin (na obrázku \ref{fig:bilance_den}) zobrazuje bilanci tekutin za celý den. Je rozdělena SplitContainerem na tekutiny příjmu (zelená) a tekutiny výdeje (červená). Každá tekutina má dva TextBoxy, první zobrazuje celkovou hodnotu za den (lze zadat novou hodnotu větší než původní), v druhém lze přičíst nově naměřenou hodnotu. Poslední hodnotou je celkový součet příjmu nebo výdeje všech tekutin.
 
 Jednotlivé tekutiny jsou v paměti indexovány podle enumu \emph{Tekutiny}. Stejně tak jsou indexovány TextBoxy celkové hodnoty tekutiny (TabIndex). TextBoxy přičtení nové hodnoty jsou indexovány stejně +100. Při ukládání hodnot se předává index TextBoxu a hodnota.
 
@@ -130,7 +136,7 @@ Hodnoty se musí uložit kliknutím na Button \emph{Uložit}. Pokud uživatel p�
 
 \subsection{Hodinová bilance tekutin}
 
-Záložka hodinové bilance tekutin (na obrázku \ref{fig:bilance_hod}) zobrazuje bilanci tekutin za aktuální hodinu. Je rozdělena SplitContainerem na tekutiny příjmu (zelená) a tekutiny výdeje (červená). Každá tekutina má TextBoxy, který zobrazuje hodnotu v aktuální hodinu (lze zadat pouze jednu hodnotu v hodině) a Button, který zobrazí dialog se všemi hodinami k dané tekutině (viz obrázek \ref{fig:bilance_hod_detail}). Poslední dvě hodnoty jsou celkový součet příjmu a výdeje všech tekutin v dané hodině a za celý den.
+Záložka hodinové bilance tekutin (na obrázku \ref{fig:bilance_hod}) zobrazuje bilanci tekutin za aktuální hodinu. Je rozdělena SplitContainerem na tekutiny příjmu (zelená) a tekutiny výdeje (červená). Každá tekutina má TextBox, který zobrazuje hodnotu v aktuální hodinu (lze zadat pouze jednu hodnotu v hodině) a Button, který zobrazí dialog se všemi hodinami k dané tekutině (viz obrázek \ref{fig:bilance_hod_detail}). Poslední dvě hodnoty jsou celkový součet příjmu nebo výdeje všech tekutin v dané hodině a za celý den.
 
 Jednotlivé tekutiny jsou v paměti indexovány podle enumu \emph{Tekutiny}. Stejně tak jsou indexovány TextBoxy celkové hodnoty tekutiny (TabIndex). Buttony zobrazení všech hodin jsou indexovány stejně +100 Při ukládání hodnot se předává index TextBoxu hodnota a aktuální hodina.
 
@@ -167,11 +173,11 @@ První panel je pouze s Labely označujícími uspořádání komponent. Posledn
   \label{fig:invaz_pristup}
 \end{figure}
 
-Při scrollování tažením prstem na tabletu se vyvolá událost vrchní komponenty, ne kontejneru, ve kterém jsou komponenty umístěny. To jsem vyřešil vytvořením MessageFiltru \emph{MouseFilter} a \emph{TouchableLayoutPanelu}.
+Scrollování tažením prstem na tabletu ve WinForms nereaguje správně. Vyvolá se scrollovací událost vrchní komponenty, ne kontejneru, ve kterém jsou komponenty umístěny. To jsem vyřešil vytvořením MessageFiltru \emph{MouseFilter} a \emph{TouchableLayoutPanelu}.
 
-MouseFilter monitoruje systémové události, konkrátně stisk levého tlačítka myši (kliknutí prstem), uvolnění levého tlačítka myši a pohyb myši, a odešle je do jejich destinace (tj. komponenta, která se u MouseFilteru zaregistruje jako posluchač). 
+MouseFilter monitoruje systémové události, konkrétně stisk levého tlačítka myši (kliknutí prstem), uvolnění levého tlačítka myši a pohyb myši, a odešle je do jejich destinace (tj. komponenta, která se u MouseFilteru zaregistruje jako posluchač). 
 
-TouchableFlowLayoutPanel dědí od FlowLayoutPanelu a má tak stejné vlastnosti. Při jeho vytvoření zaregistruje reakce na scrollování událostem MouseFilteru. Stejně tak se musí zaregistrovat každý PristupPanel.
+TouchableFlowLayoutPanel dědí od FlowLayoutPanelu a má tak stejné vlastnosti. Při jeho vytvoření zaregistruje reakce na scrollování (nastavení scrollovacího offsetu dle pohybu myši) událostem MouseFilteru. Stejně tak se musí zaregistrovat každý PristupPanel (nastavení scrollovacího offsetu rodičovského kontejneru).
 
 
 \subsection{Fyzilologie}
@@ -192,7 +198,7 @@ Scrollování je opět vyřešeno pomocí MouseFilteru a TouchableFlowLayoutPane
 
 \subsection{Opravy}
 
-V dialogu oprav (na obrázku \ref{fig:opravy}) se zobrazují všechny akce provedené přihlášeným uživatelem na dané záložce. Každá akce je FlowLayoutPanel s časem provedení, popisem a Buttonem pro zrušení akce. Po zavření dialogu (Button \emph{Zavřít} vespod) se záložka aktualizuje.
+V dialogu oprav (na obrázku \ref{fig:opravy}) se zobrazují všechny akce provedené přihlášeným uživatelem na právě otevřené záložce. Každá akce je FlowLayoutPanel s časem provedení, popisem a Buttonem pro zrušení akce. Po zavření dialogu (Button \emph{Zavřít} vespod) se záložka aktualizuje.
 
 \begin{figure}[H]
 	\centering
@@ -208,11 +214,25 @@ V dialogu oprav (na obrázku \ref{fig:opravy}) se zobrazují všechny akce prove
 
 Některé prvky poskytované knihovnou WinForms nejsou vhodné pro tablety. Například u MessageBoxu nelze změnit velikost písma. Proto jsem vytvořil vlastní MessageBox.
 
-Také systémová klávesnice není optimální. Po kliknutí do textového pole se automaticky nezobrazí, ale musí se kliknout na malé tlačítko v liště. Pro numerickou klávesnici je nutné provést ještě o jeden klik víc. Při použití klávsnice často zakryla pole do kterého se zapisovalo a uživatel tak psal \emph{na slepo}. To v nemocnici není žádoucí a vedlo to k vytvoření vlastní klávesnice a numerické klávesnice.
+Také systémová klávesnice není optimální. Po kliknutí do textového pole se automaticky nezobrazí, ale musí se kliknout na malé tlačítko v liště. Pro numerickou klávesnici je nutné provést ještě o jeden klik navíc pro přepnutí. Při použití klávsnice často zakryla pole do kterého se zapisovalo a uživatel tak psal \emph{na slepo}. To v nemocnici není žádoucí a vedlo to k vytvoření vlastní klávesnice a numerické klávesnice.
 
 \subsection{MessageBox}
 
-Dialog MessageBoxu obsahuje TableLayoutPanel s dvěma řádky a jedním sloupcem. V prvním řádku je text zprávy, ve druhém tlačítka zarovnaná doprava. MessageBox se zobrazuje s jedním potvrzovacím Buttonem \emph{OK} (viz obrázek \ref{fig:messagebox_ok}), nebo s dvěma Buttony \emph{Ano/Ne} (viz obrázek \ref{fig:messagebox_yn}) a následně vrací DialogResult podle toho, na co uživatel klikl (DialogResult.Yes nebo DialogResult.No).
+Dialog MessageBoxu obsahuje TableLayoutPanel s dvěma řádky a jedním sloupcem. V prvním řádku je text zprávy, ve druhém tlačítka zarovnaná doprava. MessageBox se zobrazuje s jedním potvrzovacím Buttonem \emph{OK} (obrázek \ref{fig:bmb1}), nebo s dvěma Buttony \emph{Ano/Ne} (obrázek \ref{fig:bmb2}) a následně vrací DialogResult podle toho, na co uživatel klikl (DialogResult.Yes nebo DialogResult.No).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{img/meditab/bmb1.eps}
+	\caption{MessageBox (MediTab)}
+  \label{fig:bmb1}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\textwidth]{img/meditab/bmb2.eps}
+	\caption{MessageBox (MediTab)}
+  \label{fig:bmb2}
+\end{figure}
 
 \subsection{Klávesnice}
 

@@ -17,8 +17,8 @@ Class=LaTeXView
 Document=BP.tex
 
 [Frame0_View0,0]
-TopLine=75
-Cursor=2125
+TopLine=74
+Cursor=1954
 
 [Frame1]
 Flags=0
@@ -89,8 +89,8 @@ Class=LaTeXView
 Document=chapters\ch3_navrhGUI.tex
 
 [Frame4_View0,0]
-TopLine=17
-Cursor=4663
+TopLine=42
+Cursor=3736
 
 [Frame5]
 Flags=0
@@ -107,8 +107,8 @@ Class=LaTeXView
 Document=chapters\ch4_implementace.tex
 
 [Frame5_View0,0]
-TopLine=87
-Cursor=5886
+TopLine=282
+Cursor=16525
 
 [Frame6]
 Flags=0
@@ -126,7 +126,7 @@ Document=chapters\ch5_test.tex
 
 [Frame6_View0,0]
 TopLine=0
-Cursor=0
+Cursor=21
 
 [SessionInfo]
 FrameCount=7
