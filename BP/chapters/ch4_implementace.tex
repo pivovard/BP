@@ -4,7 +4,7 @@ Grafické uživatelské rozhraní je implementováno knihovnou System.Windows.Fo
 
 Aplikace musí být odolná proti neplatným vstupům. Veškeré zapisované hodnoty se musí kontrolovat na správný formát a rozsah. Proto není možné zapisovat do jednotlivých komponent pomocí systémové klávesnice, ale pouze klávesnicí aplikace (viz kapitola \ref{ch:dialogy}). Další kontrola je v logické vrstvě aplikace.
 
-V aplikaci jsou dvě hlavní okna, jedno pro výběr pacienta a druhé s detailem vybraného pacienta a jednotlivými záložkami. Okna s další funkčností jsou zobrazovány jako dialogy.
+V aplikaci jsou dvě hlavní okna, jedno pro výběr pacienta a druhé detail vybraného pacienta s jednotlivými záložkami. Okna s další funkčností jsou zobrazovány jako dialogy.
 
 Po spuštění aplikace se zobrazí okno výběru pacientů s prázdným seznamem pacientů a dialog pro přihlášení. Pro práci s aplikací musí být uživatel přihlášen a mít pracovní poměr na pracovišti, na kterém se tablet nachází.
 
@@ -48,9 +48,9 @@ Vybráním pacienta kliknutím na řádek v ListView se začnou stahovat data o 
 
 
 
-\section{Detail pacienta}
+\section{Karta pacienta}
 
-Hlavní čásní okna detailu pacienta je TabControl pro snadné přepínání mezi jednotlivými záložkami (TabPage). Vpravo je Button pro návrat k výběru pacientů a Button pro zobrazení oprav. Při otevřené záložce denní nebo hodinové bilance tekutin je zde Button pro návrat k výběru pacientů bez uložení hodnot. Vespod je StatusStrip s informací o přihlášeném uživateli, vybraném pacientovi a verzí aplikace.
+Hlavní čásní okna je TabControl pro snadné přepínání mezi jednotlivými záložkami (TabPage). Vpravo je Button pro návrat k výběru pacientů a Button pro zobrazení oprav. Při otevřené záložce denní nebo hodinové bilance tekutin je zde Button pro návrat k výběru pacientů bez uložení hodnot. Vespod je StatusStrip s informací o přihlášeném uživateli, vybraném pacientovi a verzí aplikace.
 
 \subsection{Ordinované léky}
 
