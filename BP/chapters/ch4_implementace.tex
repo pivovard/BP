@@ -1,10 +1,10 @@
 \chapter{Implementace}
 
-Grafické uživatelské rozhraní je implementováno knihovnou System.Windows.Forms. Aplikace by měla fungovat rychle, proto je priorita procesu nastavena na RealTime.
+Grafické uživatelské rozhraní je implementováno knihovnou System.Windows.Forms. Aplikace by měla fungovat rychle, proto je priorita procesu nastavena na RealTime. Tak je zajišteno, že plánovač procesoru upřednostní aplikaci před aplikacemi s nižší prioritou.
 
 Aplikace musí být odolná proti neplatným vstupům. Veškeré zapisované hodnoty se musí kontrolovat na správný formát a rozsah. Proto není možné zapisovat do jednotlivých komponent pomocí systémové klávesnice, ale pouze klávesnicí aplikace (viz kapitola \ref{ch:dialogy}). Další kontrola je v logické vrstvě aplikace.
 
-V aplikaci jsou dvě hlavní okna, jedno pro výběr pacienta a druhé detail vybraného pacienta s jednotlivými záložkami. Okna s další funkčností jsou zobrazovány jako dialogy.
+V aplikaci jsou dvě hlavní okna, jedno pro výběr pacienta a druhé detail vybraného pacienta s jednotlivými záložkami. Okna s další funkčností jsou zobrazována jako dialogy.
 
 Po spuštění aplikace se zobrazí okno výběru pacientů s prázdným seznamem pacientů a dialog pro přihlášení. Pro práci s aplikací musí být uživatel přihlášen a mít pracovní poměr na pracovišti, na kterém se tablet nachází.
 
@@ -50,7 +50,7 @@ Vybráním pacienta kliknutím na řádek v ListView se začnou stahovat data o 
 
 \section{Karta pacienta}
 
-Hlavní čásní okna je TabControl pro snadné přepínání mezi jednotlivými záložkami (TabPage). Vpravo je Button pro návrat k výběru pacientů a Button pro zobrazení oprav. Při otevřené záložce denní nebo hodinové bilance tekutin je zde Button pro návrat k výběru pacientů bez uložení hodnot. Vespod je StatusStrip s informací o přihlášeném uživateli, vybraném pacientovi a verzí aplikace.
+Hlavní částí okna je TabControl pro snadné přepínání mezi jednotlivými záložkami (TabPage). Vpravo je Button pro návrat k výběru pacientů a Button pro zobrazení oprav. Při otevřené záložce denní nebo hodinové bilance tekutin je zde Button pro návrat k výběru pacientů bez uložení hodnot. Vespod je StatusStrip s informací o přihlášeném uživateli, vybraném pacientovi a verzí aplikace.
 
 \subsection{Ordinované léky}
 
@@ -70,7 +70,7 @@ Druhý DataGridView zobrazuje tabulku jednotlivých ordinací. 24 sloupců před
 \begin{itemize}
 	\item Zeleně - provedená ordinace.
 	\item Světle zeleně - provedená infuze (krom hodiny, kde infuze začíná, to je tmavě zelené). Infuze může mít definovaný konec, nebo je zobrazena do aktuální hodiny.
-	\item Šedě - ordinovaná ordinace.
+	\item Šedě - předepsané ordinace.
 	\item Fialově - neprovedená ordinace.
 \end{itemize}
 
@@ -97,9 +97,9 @@ V prvním řádku je název léku a dávkování.
 
 V druhém řádku prvním sloupci je seznam ordinací daného léku v ListView, v druhém sloupci pak detail vybrané ordinace. Vybráním ordinace ze seznamu (FocusedIndex) se zobrazí její detail. V případě, že se změní některá hodnota ordinace, se při výběru jiné nebo zavření dialogu současná uloží a případně se aktualizuje řádek v ListView.
 
-Změna hodin v DateTimePickerech nastane přejetím prstu po komponentě (přímá změna hodnoty není na tabletu vhodná). V okamžiku vstupu do místa DateTimePickeru se uloží y-ová souřadnice, v okamžiku kdy se komponenta opustí se hodina podle místa opuštění zvýší nebo sníží. Do poznámky lze zapisovat pouze pokud je stav ordinace nastaven na nepodáno. Pokud ordinace nemá nastaveny vlastní jednotky, zobrazují se jednotky léku.
+Změna hodin v DateTimePickerech nastane přejetím prstu po komponentě (přímá změna hodnoty není na tabletu vhodná). V okamžiku vstupu do místa DateTimePickeru se uloží y-ová souřadnice, v okamžiku kdy se komponenta opustí, hodina se podle místa opuštění zvýší nebo sníží. Do poznámky lze zapisovat, pouze pokud je stav ordinace nastaven na nepodáno. Pokud ordinace nemá nastaveny vlastní jednotky, zobrazují se jednotky léku.
 
-V posledním řádku jsou tlačítka na přidání nové ordinace, smazání ordinace a zavření dialogu. Button přidání ordinace vytvoří záznam v ListView ordinací, ordinace se uloží až při vybrání jiné ordinace nebo při zavření dialogu. Proto při mazání ordinace se zkontroluje zda je daná ordinace v paměti. Pokud ano, odešle se požadavek na smazání, pokud ne, odstraní se pouze z ListView. Při zavření dialogu proběhne kontrola, zda právě zobrazená ordinace nebyla změněna a případně se uloží.
+V posledním řádku jsou tlačítka na přidání nové ordinace, smazání ordinace a zavření dialogu. Button přidání ordinace vytvoří záznam v ListView ordinací, ordinace se uloží až při vybrání jiné ordinace nebo při zavření dialogu. Proto se při mazání ordinace zkontroluje, zda je daná ordinace v paměti. Pokud ano, odešle se požadavek na smazání, pokud ne, odstraní se pouze z ListView. Při zavření dialogu proběhne kontrola, zda právě zobrazená ordinace nebyla změněna, a případně se uloží.
 
 
 \subsubsection{Přidání nového léku}
@@ -123,7 +123,7 @@ Po zavření dialogu se nový lék přidá na poslední řádku v medikační ka
 
 Záložka denní bilance tekutin (na obrázku \ref{fig:bilance_den}) zobrazuje bilanci tekutin za celý den. Je rozdělena SplitContainerem na tekutiny příjmu (zelená) a tekutiny výdeje (červená). Každá tekutina má dva TextBoxy, první zobrazuje celkovou hodnotu za den (lze zadat novou hodnotu větší než původní), v druhém lze přičíst nově naměřenou hodnotu. Poslední hodnotou je celkový součet příjmu nebo výdeje všech tekutin.
 
-Jednotlivé tekutiny jsou v paměti indexovány podle enumu \emph{Tekutiny}. Stejně tak jsou indexovány TextBoxy celkové hodnoty tekutiny (TabIndex). TextBoxy přičtení nové hodnoty jsou indexovány stejně +100. Při ukládání hodnot se předává index TextBoxu a hodnota.
+Jednotlivé tekutiny jsou v paměti indexovány podle enumu \emph{Tekutiny}. Stejně tak jsou indexovány TextBoxy (TabIndex). Jelikož pole celkové hodnoty a pole pro zadání nově naměřené hodnoty jedné tekutiny náleží jednomu indexu v paměti (ale stále je nutné oba TextBoxy rozlišit), přičte se k indexu pole nové hodnoty konstanta 100 (při předávání hodnoty se odečte). Při ukládání hodnot se předává index TextBoxu a hodnota.
 
 \begin{figure}[H]
 	\centering
@@ -132,13 +132,13 @@ Jednotlivé tekutiny jsou v paměti indexovány podle enumu \emph{Tekutiny}. Ste
   \label{fig:bilance_den}
 \end{figure}
 
-Hodnoty se musí uložit kliknutím na Button \emph{Uložit}. Pokud uživatel přepne na jinou záložku aplikace ho upozorní, že hodnoty neuložil a zeptá se, jestli je chce uložit. Buttonem \emph{Zpět} se hodnoty uloží a vrátí se k výběru pacientů, Buttonem \emph{Zpět bez uložení} se vrátí k výběru pacientů bez uložení.
+Hodnoty se musí uložit kliknutím na Button \emph{Uložit}. Pokud uživatel přepne na jinou záložku, aplikace ho upozorní, že hodnoty neuložil, a zeptá se, jestli je chce uložit. Buttonem \emph{Zpět} se hodnoty uloží a vrátí se k výběru pacientů, Buttonem \emph{Zpět bez uložení} se vrátí k výběru pacientů bez uložení.
 
 \subsection{Hodinová bilance tekutin}
 
 Záložka hodinové bilance tekutin (na obrázku \ref{fig:bilance_hod}) zobrazuje bilanci tekutin za aktuální hodinu. Je rozdělena SplitContainerem na tekutiny příjmu (zelená) a tekutiny výdeje (červená). Každá tekutina má TextBox, který zobrazuje hodnotu v aktuální hodinu (lze zadat pouze jednu hodnotu v hodině) a Button, který zobrazí dialog se všemi hodinami k dané tekutině (viz obrázek \ref{fig:bilance_hod_detail}). Poslední dvě hodnoty jsou celkový součet příjmu nebo výdeje všech tekutin v dané hodině a za celý den.
 
-Jednotlivé tekutiny jsou v paměti indexovány podle enumu \emph{Tekutiny}. Stejně tak jsou indexovány TextBoxy celkové hodnoty tekutiny (TabIndex). Buttony zobrazení všech hodin jsou indexovány stejně +100 Při ukládání hodnot se předává index TextBoxu hodnota a aktuální hodina.
+Jednotlivé tekutiny jsou v paměti indexovány podle enumu \emph{Tekutiny}. Stejně tak jsou indexovány TextBoxy (TabIndex). Jelikož pole celkové hodnoty a pole pro zadání nově naměřené hodnoty jedné tekutiny náleží jednomu indexu v paměti (ale stále je nutné oba TextBoxy rozlišit), přičte se k indexu pole nové hodnoty konstanta 100 (při předávání hodnoty se odečte). Při ukládání hodnot se předává index TextBoxu hodnota a aktuální hodina.
 
 \begin{figure}[H]
 	\centering
@@ -177,10 +177,10 @@ Scrollování tažením prstem na tabletu ve WinForms nereaguje správně. Vyvol
 
 MouseFilter monitoruje systémové události, konkrétně stisk levého tlačítka myši (kliknutí prstem), uvolnění levého tlačítka myši a pohyb myši, a odešle je do jejich destinace (tj. komponenta, která se u MouseFilteru zaregistruje jako posluchač). 
 
-TouchableFlowLayoutPanel dědí od FlowLayoutPanelu a má tak stejné vlastnosti. Při jeho vytvoření zaregistruje reakce na scrollování (nastavení scrollovacího offsetu dle pohybu myši) událostem MouseFilteru. Stejně tak se musí zaregistrovat každý PristupPanel (nastavení scrollovacího offsetu rodičovského kontejneru).
+TouchableFlowLayoutPanel dědí od FlowLayoutPanelu, a má tak stejné vlastnosti. Při jeho vytvoření zaregistruje reakce na scrollování (nastavení scrollovacího offsetu dle pohybu myši) událostem MouseFilteru. Stejně tak se musí zaregistrovat každý PristupPanel (nastavení scrollovacího offsetu rodičovského kontejneru).
 
 
-\subsection{Fyzilologie}
+\subsection{Fyziologie}
 
 V záložce fyziologie (obrázek \ref{fig:fyziologie}) je každý záznam reprezentován vytvořenou komponentou FyziologiePanel, která dědí od FlowLayoutPanelu. Ve FyziologiePanelu je datum záznamu, TextBoxy s hodnotami životních funkcí pacienta a ovládací tlačítka (Upravit, Smazat).
 
@@ -214,7 +214,7 @@ V dialogu oprav (na obrázku \ref{fig:opravy}) se zobrazují všechny akce prove
 
 Některé prvky poskytované knihovnou WinForms nejsou vhodné pro tablety. Například u MessageBoxu nelze změnit velikost písma. Proto jsem vytvořil vlastní MessageBox.
 
-Také systémová klávesnice není optimální. Po kliknutí do textového pole se automaticky nezobrazí, ale musí se kliknout na malé tlačítko v liště. Pro numerickou klávesnici je nutné provést ještě o jeden klik navíc pro přepnutí. Při použití klávsnice často zakryla pole do kterého se zapisovalo a uživatel tak psal \emph{na slepo}. To v nemocnici není žádoucí a vedlo to k vytvoření vlastní klávesnice a numerické klávesnice.
+Také systémová klávesnice není optimální. Po kliknutí do textového pole se automaticky nezobrazí, ale musí se kliknout na malé tlačítko v liště. Pro numerickou klávesnici je nutné provést ještě o jeden klik navíc pro přepnutí. Při použití klávesnice často zakryla pole, do kterého se zapisovalo, a uživatel tak psal \emph{naslepo}. To v nemocnici není žádoucí a vedlo to k vytvoření vlastní klávesnice a numerické klávesnice.
 
 \subsection{MessageBox}
 
@@ -236,7 +236,7 @@ Dialog MessageBoxu obsahuje TableLayoutPanel s dvěma řádky a jedním sloupcem
 
 \subsection{Klávesnice}
 
-Rozložení klávesnice odpovídá klasické klávesnici. Pro větší přehlednost neobsahuje veškeré speciální znaky, ale pouze ty, které jsou používány v nemocnici. V horní části je TextBox, ve kterém uživatel vidí co píše (viz orázek \ref{fig:keyboard}). Při zobrazení klávesnice může být TextBox již vyplněn textem z pole do kterého zapisujem. Vrací DialogResult.OK, pokud uživatel potvrdí zápis, nebo DialogResult.Cancel, pokud nepotvrdí.
+Rozložení klávesnice odpovídá klasické klávesnici. Pro větší přehlednost neobsahuje veškeré speciální znaky, ale pouze ty, které jsou používány v nemocnici. V horní části je TextBox, ve kterém uživatel vidí, co píše (viz obrázek \ref{fig:keyboard}). Při zobrazení klávesnice může být TextBox již vyplněn textem z pole, do kterého se zapisuje. Vrací DialogResult.OK, pokud uživatel potvrdí zápis, nebo DialogResult.Cancel, pokud nepotvrdí.
 
 \begin{figure}[H]
 	\centering
@@ -247,7 +247,7 @@ Rozložení klávesnice odpovídá klasické klávesnici. Pro větší přehledn
 
 \subsection{Numerická klávesnice}
 
-Jednoduchá numerická klávesnice pouze s ciframi, desetinnou čárkou a potvrzovacími tlačítky (viz obrázek \ref{fig:keyboard_num}). Klávesnice má dva módy, s aktivní či neaktivní desetinnou čárkou. V horní části je TextBox stejně, jako je tomu u předešlé klávesnice. Vrací DialogResult.OK, pokud uživatel potvrdí zápis, nebo DialogResult.Cancel pokud nepotvrdí.
+Jednoduchá numerická klávesnice pouze s ciframi, desetinnou čárkou a potvrzovacími tlačítky (viz obrázek \ref{fig:keyboard_num}). Klávesnice má dva módy, s aktivní či neaktivní desetinnou čárkou. V horní části je TextBox stejně, jako je tomu u předešlé klávesnice. Vrací DialogResult.OK, pokud uživatel potvrdí zápis, nebo DialogResult.Cancel, pokud nepotvrdí.
 
 \begin{figure}[H]
 	\centering

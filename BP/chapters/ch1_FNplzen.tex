@@ -29,7 +29,7 @@ Karta ordinovaných léků slouží k evidenci podávaných léků u pacienta. L
 
 Medikační karta pro každého pacienta se poté vytiskne na papír do tabulky s vyznačenými hodinami. Tabulka nezačíná od půlnoci, ale od hodiny, kterou mají na oddělení nastavenou jako začátek dne (obvykle to bývá 6-7 hodina). Zdravotní sestry poté podle medikační karty podávají předepsané léky jednotlivým pacientům.
 
-Medikační kartu musí vždy před vytištěním schválit lékař. Pokud to nestihne do začátku dne, vytiskne se karta z předchozího dne. Zdravotní sestry pak podávají léky podle této karty do doby, než se schválí a vytiskne nová medikační karta. Překrývající se údaje poté přepíší.
+Způsoby zápisu ordinací se liší podle oddělení, ale i každá sestra má jiný styl zápisu. Vytištěné karty ordinovaných léků poté nemají jednotnou formu.
 
 \subsection{Bilance tekutin}
 
@@ -43,13 +43,13 @@ V bilanci tekutin se zaznamenává příjem a výdej veškerých tekutin pacient
 \end{figure}
 
 
-Příjem a výdej tekutin se odečítají zdravotní sestry během dne několikrát, ke každé tekutině tedy během dne bude několik hodnot. Všechny hodnoty se ukládají do databáze, aby bylo možné sledovat jejich vývoj.
+Příjem a výdej tekutin odečítají zdravotní sestry během dne několikrát, ke každé tekutině tedy během dne bude několik hodnot. Všechny hodnoty se ukládají do databáze, aby bylo možné sledovat jejich vývoj.
 
 Zdravotní sestry zaznamenávají příjem a výdej tekutin na papír. Na konci dne přepíší údaje do WinMedicalcu.
 
 \subsection{Invazivní přístupy}
 
-Pacient může mít zavedeno několik invazivních přístupů. Jedná se o katetry nebo drény. Každý invazivní přístup má vlastní specifikaci (číslo, název, umístění, hloubku zavedení, datum zavedení a počet dnů zavedení). Určité invazivní přístupy lze nechat v pacientovi zavedeny pouze po určitý počet dní (dle lékářských předpisů). Poté se musí vyměnit za nové nebo odebrat. Proto lze každý invazivní přístup v aplikaci označit požadavkem na výměnu. Následně jej lékař buď vymění, ve WinMedicalcu aktualizuje datum zavedení na datum výměny, nebo odebere a smaže ho ze seznamu invazivních přístupů. Změny invazivních přístupů do WinMedicalcu většinou zadává zdravotní sestra. Rozložení karty invazivní přístupů je na obrázku \ref{fig:WM_invazivni_pristupy}.
+Pacient může mít zavedeno několik invazivních přístupů. Jedná se o katetry nebo drény. Každý invazivní přístup má vlastní specifikaci (číslo, název, umístění, hloubku zavedení, datum zavedení a počet dnů zavedení). Katetry a drény lze nechat v pacientovi zavedeny pouze po určitý počet dní (dle lékářských předpisů). Poté se musí vyměnit za nové nebo odebrat. Proto lze každý invazivní přístup v aplikaci označit požadavkem na výměnu. Následně jej lékař buď vymění, ve WinMedicalcu aktualizuje datum zavedení na datum výměny, nebo odebere a smaže ho ze seznamu invazivních přístupů. Změny invazivních přístupů do WinMedicalcu většinou zadává zdravotní sestra. Rozložení karty invazivních přístupů je na obrázku \ref{fig:WM_invazivni_pristupy}.
 
 \begin{figure}[H]
 	\centering
@@ -62,5 +62,3 @@ Pacient může mít zavedeno několik invazivních přístupů. Jedná se o kate
 \subsection{Databáze}
 
 Ve FN Plzeň je rozsáhlá databáze od Oraclu. V ní se ukládají prakticky všechny záznamy, včetně záznamů o pracovnících FN Plzeň, záznamů o pacientech a klinických událostech. Tato data se využijí ve vyvíjené aplikaci.
-
-Jelikož přístup do databáze je pouze ve FN Plzeň, byla její část zkopírována do nového tablespace v Oracle databázi na ZČU. Tu jsme naplnili fiktivními testovacími daty, které odpovídají realným datům.
