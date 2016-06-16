@@ -1,8 +1,11 @@
 \chapter{Implementace}
+\label{ch:implementace}
 
 Grafické uživatelské rozhraní je implementováno knihovnou System.Windows.Forms. Aplikace by měla fungovat rychle, proto je priorita procesu nastavena na RealTime. Tak je zajišteno, že plánovač procesoru upřednostní aplikaci před aplikacemi s nižší prioritou.
 
-Aplikace musí být odolná proti neplatným vstupům. Veškeré zapisované hodnoty se musí kontrolovat na správný formát a rozsah. Proto není možné zapisovat do jednotlivých komponent pomocí systémové klávesnice, ale pouze klávesnicí aplikace (viz kapitola \ref{ch:dialogy}). Další kontrola je v logické vrstvě aplikace.
+Aplikace musí být odolná proti neplatným vstupům. Veškeré zapisované hodnoty se musí kontrolovat na správný formát a rozsah. Proto není možné zapisovat do jednotlivých komponent pomocí systémové klávesnice, ale pouze klávesnicí aplikace (viz kapitola \ref{sec:dialogy}). Další kontrola je v logické vrstvě aplikace.
+
+Velikosti komponent dynamicky přizpůsobují svoji velikost svému obsahu a rodičovskému kontejneru. Komponenty mají větší velikost pro snazší ovládání na tabletu.
 
 V aplikaci jsou dvě hlavní okna, jedno pro výběr pacienta a druhé detail vybraného pacienta s jednotlivými záložkami. Okna s další funkčností jsou zobrazována jako dialogy.
 
@@ -74,15 +77,15 @@ Druhý DataGridView zobrazuje tabulku jednotlivých ordinací. 24 sloupců před
 	\item Fialově - neprovedená ordinace.
 \end{itemize}
 
-Kliknutím na políčko DataGridView se zobrazí dialog podání ordinací (viz kapitola \ref{ch:ordinace} Podání ordinací) s vybranou ordinací (pokud existuje k dané hodině). Po zavření dialogu se aktualizuje celý řádek s lékem. Dvojitým kliknutím se rovnou provede podání ordinace v danou hodinu (podání pouze jednorázové ordinace, ne infuze).
+Kliknutím na políčko DataGridView se zobrazí dialog podání ordinací (viz kapitola \ref{sec:ordinace} Podání ordinací) s vybranou ordinací (pokud existuje k dané hodině). Po zavření dialogu se aktualizuje celý řádek s lékem. Dvojitým kliknutím se rovnou provede podání ordinace v danou hodinu (podání pouze jednorázové ordinace, ne infuze).
 
 Komponentě DataGridView nelze přiřadit událost Click a DoubleClick tak, aby se při dvojitém kliknutí nevyvolala událost jednoduchého kliknutí. Proto se při prvním kliknutí vytvoří vlákno, které na krátký čas pozastaví vykonání události jednoduchého kliknutí (zobrazení dialogu podání ordinací) a čeká se, jestli v této době uživatel klikne podruhé. Pokud ano, provede se jednorázové podání, pokud ne, zobrazí se dialog podání ordinací.
 
-Vespod záložky je Button pro zobrazení dialogu přidání nového léku (viz kapitola \ref{ch:pridat_lek} Přidání nového léku).
+Vespod záložky je Button pro zobrazení dialogu přidání nového léku (viz kapitola \ref{sec:pridat_lek} Přidání nového léku).
 
 
 \subsubsection{Podání ordinací}
-\label{ch:ordinace}
+\label{sec:ordinace}
 
 Dialog podání ordinací rozložením kopíruje dialog ve WinMedicalc (viz obrázek \ref{fig:medikace}). Je rozdělen TableLayoutPanelem na šest části, tři řádky a dva sloupce.
 
@@ -103,7 +106,7 @@ V posledním řádku jsou tlačítka na přidání nové ordinace, smazání ord
 
 
 \subsubsection{Přidání nového léku}
-\label{ch:pridat_lek}
+\label{sec:pridat_lek}
 
 Dialog na obrázku \ref{fig:medikace_pridat_lek} umožní sestře přidat nový naordinovaný lék.
 
@@ -160,7 +163,7 @@ Hodnoty se musí uložit kliknutím na Button \emph{Uložit}. Pokud uživatel p�
 
 
 \subsection{Invazivní přístupy}
-\label{ch:pristup}
+\label{sec:pristup}
 
 V záložce invazivních přístupů (obrázek \ref{fig:invaz_pristup}) je každý invazivní přístup reprezentován vytvořenou komponentou PristupPanel, která dědí od FlowLayoutPanelu. V PristupPanelu jsou veškeré komponenty s informacemi o daném invazivním přístupu (ComboBoxy, TextBoxy, DateTimePicker) a ovládací tlačítka (Vyměnit, Aktualizuj, Vymaž). Panel je na střídačku podbarven ve dvou odstínech světle šedé pro lepší přehlednost.
 
@@ -193,7 +196,7 @@ První panel je pouze s Labely označujícími uspořádání komponent. Posledn
   \label{fig:fyziologie}
 \end{figure}
 
-Scrollování je opět vyřešeno pomocí MouseFilteru a TouchableFlowLayoutPanelu jako u invazivních přístupů (viz kapitola \ref{ch:pristup}).
+Scrollování je opět vyřešeno pomocí MouseFilteru a TouchableFlowLayoutPanelu jako u invazivních přístupů (viz kapitola \ref{sec:pristup}).
 
 
 \subsection{Opravy}
@@ -210,7 +213,7 @@ V dialogu oprav (na obrázku \ref{fig:opravy}) se zobrazují všechny akce prove
 
 
 \section{Dialogy}
-\label{ch:dialogy}
+\label{sec:dialogy}
 
 Některé prvky poskytované knihovnou WinForms nejsou vhodné pro tablety. Například u MessageBoxu nelze změnit velikost písma. Proto jsem vytvořil vlastní MessageBox.
 

@@ -17,8 +17,8 @@ Class=LaTeXView
 Document=BP.tex
 
 [Frame0_View0,0]
-TopLine=90
-Cursor=2081
+TopLine=95
+Cursor=2204
 
 [Frame1]
 Flags=0
@@ -36,7 +36,7 @@ Document=chapters\abstrakt.tex
 
 [Frame1_View0,0]
 TopLine=0
-Cursor=856
+Cursor=339
 
 [Frame2]
 Flags=0
@@ -54,7 +54,7 @@ Document=chapters\uvod.tex
 
 [Frame2_View0,0]
 TopLine=0
-Cursor=1636
+Cursor=55
 
 [Frame3]
 Flags=0
@@ -71,8 +71,8 @@ Class=LaTeXView
 Document=chapters\ch1_FNplzen.tex
 
 [Frame3_View0,0]
-TopLine=0
-Cursor=3585
+TopLine=59
+Cursor=4917
 
 [Frame4]
 Flags=0
@@ -89,8 +89,8 @@ Class=LaTeXView
 Document=chapters\ch2_technicke_parametry.tex
 
 [Frame4_View0,0]
-TopLine=0
-Cursor=256
+TopLine=17
+Cursor=1879
 
 [Frame5]
 Flags=0
@@ -107,8 +107,8 @@ Class=LaTeXView
 Document=chapters\ch3_navrhGUI.tex
 
 [Frame5_View0,0]
-TopLine=0
-Cursor=1215
+TopLine=9
+Cursor=1345
 
 [Frame6]
 Flags=0
@@ -125,8 +125,8 @@ Class=LaTeXView
 Document=chapters\ch4_implementace.tex
 
 [Frame6_View0,0]
-TopLine=159
-Cursor=11249
+TopLine=87
+Cursor=4406
 
 [Frame7]
 Flags=0
@@ -144,7 +144,7 @@ Document=chapters\ch5_test.tex
 
 [Frame7_View0,0]
 TopLine=0
-Cursor=21
+Cursor=1107
 
 [Frame8]
 Flags=0
@@ -162,9 +162,9 @@ Document=chapters\zaver.tex
 
 [Frame8_View0,0]
 TopLine=0
-Cursor=519
+Cursor=707
 
 [SessionInfo]
 FrameCount=9
-ActiveFrame=5
+ActiveFrame=0
 

@@ -1,4 +1,5 @@
 \chapter{Návrh}
+\label{ch:navrh}
 
 Od vyvíjené aplikace je vyžadována vysoká spolehlivost. Proto musí být pečlivě otestováná přímo v prostředí FN Plzeň na nemocniční databázi a proveden testovací provoz. Na oddělení bude více tabletů pro případ, že by se některý rozbil či ztratil. Při selhání aplikace mohou sestry vždy použít program WinMedicalc nainstalovaný na počítači v sesterně, který je přímo připojen do interní sítě nemocnice. Výpadek databázového serveru nebo sítě řeší SIS FN Plzeň.
 
@@ -10,17 +11,22 @@ Aplikace je rozdělena do tří vrstev (viz obrázek \ref{fig:architektura}. Vrs
 	\centering
 	\includegraphics[width=0.5\textwidth]{img/architektura.eps}
 	\caption{Architektura aplikace MediTab}
-  \label{fig:WM_invazivni_pristupy}
+  \label{fig:architektura}
 \end{figure}
 
 Předmětem této práce je vrstva uživatelského rozhraní.
 
 
+\section{Design}
+
+Design aplikace musí splňovat požadovanou funkčnost. Ovládání musí být jednoduché a intuitivní, aby nebylo nutné dlouhé zaškolení zdravotních sester. Zároveň musí být rychlé bez zbytečného klikání, které by zpomalovalo práci.
+
+Je vhodné přizpůsobit vzhled aplikace co nejvíce vzhledu WinMedicalcu, na který jsou pracovníci FN Plzeň zvyklí, a dodržovat již zavedené konvence. Proto jsem zvolil pro grafické uživatelské rozhraní knihovnu WinForms\footnote{System.Windows.Forms} místo novějšího WPF\footnote{Windows Presentation Foundation}.
+
+
 \section{Uživatelské rozhraní}
 
-Pro usnadnění práce s aplikací je vhodné co nejvíce přizpůsobit vzhled aplikace vzhledu WinMedicalcu, na který jsou pracovníci FN Plzeň zvyklí. Proto jsem zvolil pro grafické uživatelské rozhraní knihovnu WinForms\footnote{System.Windows.Forms} místo novějšího WPF\footnote{Windows Presentation Foundation}.
-
-Grafické uživatelské rozhraní bude řešeno dynamicky pro možnost použití aplikace na jiných zařízeních.
+Aplikace je určena pro tablet, kdy má vyplňovat celou plochu obrazovky s minimem prázdného prostoru. Komponenty by měly mít větší velikost pro snazší ovládání na tabletu.
 
 \subsection{Přihlášení}
 
@@ -65,6 +71,3 @@ Záložka fyziologie zobrazuje změřené životní funkce pacieta, tj. teplota,
 \subsection{Opravy}
 
 Po stisknutí tlačítka oprav se zobrazí seznam možných oprav provedených úkonů (ty budou časově omezeny dle oddělení). Každá položka bude obsahovat číslo opravy, datum a čas provedení úkonu, informace o provedeném úkonu a tlačítko pro vrácení úkonu. V dolní části bude tlačítko pro zavření seznamu.
-
-
-\section{Design}
