@@ -10,15 +10,15 @@ MinPos.y=-1
 MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
-NormalPos.top=32
-NormalPos.right=1562
-NormalPos.bottom=851
+NormalPos.top=26
+NormalPos.right=1064
+NormalPos.bottom=563
 Class=LaTeXView
-Document=BP.tex
+Document=chapters\zaver.tex
 
 [Frame0_View0,0]
-TopLine=95
-Cursor=2204
+TopLine=0
+Cursor=499
 
 [Frame1]
 Flags=0
@@ -28,15 +28,15 @@ MinPos.y=-1
 MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
-NormalPos.top=32
-NormalPos.right=1562
-NormalPos.bottom=851
+NormalPos.top=26
+NormalPos.right=1064
+NormalPos.bottom=563
 Class=LaTeXView
-Document=chapters\abstrakt.tex
+Document=BP.tex
 
 [Frame1_View0,0]
-TopLine=0
-Cursor=339
+TopLine=105
+Cursor=2497
 
 [Frame2]
 Flags=0
@@ -46,15 +46,15 @@ MinPos.y=-1
 MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
-NormalPos.top=32
-NormalPos.right=1562
-NormalPos.bottom=851
+NormalPos.top=26
+NormalPos.right=1064
+NormalPos.bottom=563
 Class=LaTeXView
-Document=chapters\uvod.tex
+Document=chapters\abstrakt.tex
 
 [Frame2_View0,0]
 TopLine=0
-Cursor=55
+Cursor=339
 
 [Frame3]
 Flags=0
@@ -64,15 +64,15 @@ MinPos.y=-1
 MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
-NormalPos.top=32
-NormalPos.right=1562
-NormalPos.bottom=851
+NormalPos.top=26
+NormalPos.right=1064
+NormalPos.bottom=563
 Class=LaTeXView
-Document=chapters\ch1_FNplzen.tex
+Document=chapters\uvod.tex
 
 [Frame3_View0,0]
-TopLine=59
-Cursor=4917
+TopLine=0
+Cursor=1160
 
 [Frame4]
 Flags=0
@@ -82,15 +82,15 @@ MinPos.y=-1
 MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
-NormalPos.top=32
-NormalPos.right=1562
-NormalPos.bottom=851
+NormalPos.top=26
+NormalPos.right=1064
+NormalPos.bottom=563
 Class=LaTeXView
-Document=chapters\ch2_technicke_parametry.tex
+Document=chapters\ch1_FNplzen.tex
 
 [Frame4_View0,0]
-TopLine=17
-Cursor=1879
+TopLine=72
+Cursor=5476
 
 [Frame5]
 Flags=0
@@ -100,15 +100,15 @@ MinPos.y=-1
 MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
-NormalPos.top=32
-NormalPos.right=1562
-NormalPos.bottom=851
+NormalPos.top=26
+NormalPos.right=1064
+NormalPos.bottom=563
 Class=LaTeXView
-Document=chapters\ch3_navrhGUI.tex
+Document=chapters\ch2_technicke_parametry.tex
 
 [Frame5_View0,0]
-TopLine=9
-Cursor=1345
+TopLine=18
+Cursor=1590
 
 [Frame6]
 Flags=0
@@ -118,15 +118,15 @@ MinPos.y=-1
 MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
-NormalPos.top=32
-NormalPos.right=1562
-NormalPos.bottom=851
+NormalPos.top=26
+NormalPos.right=1064
+NormalPos.bottom=563
 Class=LaTeXView
-Document=chapters\ch4_implementace.tex
+Document=chapters\ch3_navrhGUI.tex
 
 [Frame6_View0,0]
-TopLine=87
-Cursor=4406
+TopLine=21
+Cursor=2448
 
 [Frame7]
 Flags=0
@@ -136,15 +136,15 @@ MinPos.y=-1
 MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
-NormalPos.top=32
-NormalPos.right=1562
-NormalPos.bottom=851
+NormalPos.top=26
+NormalPos.right=1064
+NormalPos.bottom=563
 Class=LaTeXView
-Document=chapters\ch5_test.tex
+Document=chapters\ch4_implementace.tex
 
 [Frame7_View0,0]
-TopLine=0
-Cursor=1107
+TopLine=102
+Cursor=4406
 
 [Frame8]
 Flags=0
@@ -154,15 +154,15 @@ MinPos.y=-1
 MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
-NormalPos.top=32
-NormalPos.right=1562
-NormalPos.bottom=851
+NormalPos.top=26
+NormalPos.right=1064
+NormalPos.bottom=563
 Class=LaTeXView
-Document=chapters\zaver.tex
+Document=chapters\ch5_test.tex
 
 [Frame8_View0,0]
-TopLine=0
-Cursor=707
+TopLine=10
+Cursor=2482
 
 [SessionInfo]
 FrameCount=9

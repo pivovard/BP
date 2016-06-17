@@ -5,7 +5,7 @@ Od vyvíjené aplikace je vyžadována vysoká spolehlivost. Proto musí být pe
 
 \section{Architektura}
 
-Aplikace je rozdělena do tří vrstev (viz obrázek \ref{fig:architektura}. Vrstva přístupu k databázi se stará o spojení s databází, stahování a odesílání dat. Logická vrstva se stará o zpracování dat z databáze do formy, která je zobrazitelná v uživatelském rozhraní a poskytuje uživatelskému rozhraní prostředky pro práci s daty. Také ošetřuje zadávání nekorektních dat. Vrstva uživatelské rozhraní se stará o zobrazení dat uživateli a umožňuje mu manipulaci s daty.
+Aplikace je rozdělena do tří vrstev (viz obrázek \ref{fig:architektura}. Vrstva přístupu k databázi se stará o spojení s databází, stahování a odesílání dat. Logická vrstva se stará o zpracování dat z databáze do formy, která je zobrazitelná v uživatelském rozhraní, a poskytuje uživatelskému rozhraní prostředky pro práci s daty. Také ošetřuje zadávání nekorektních dat. Vrstva uživatelského rozhraní se stará o zobrazení dat uživateli a umožňuje mu manipulaci s daty.
 
 \begin{figure}[H]
 	\centering
@@ -14,14 +14,20 @@ Aplikace je rozdělena do tří vrstev (viz obrázek \ref{fig:architektura}. Vrs
   \label{fig:architektura}
 \end{figure}
 
-Předmětem této práce je vrstva uživatelského rozhraní.
+Předmětem této práce je vytvoření vrstvy uživatelského rozhraní.
 
 
 \section{Design}
 
-Design aplikace musí splňovat požadovanou funkčnost. Ovládání musí být jednoduché a intuitivní, aby nebylo nutné dlouhé zaškolení zdravotních sester. Zároveň musí být rychlé bez zbytečného klikání, které by zpomalovalo práci.
+Uživatelské rozhraní zjednodušuje skutečné procesy v počítači a zprostředkovává komunikaci mezi člověkem a strojem. Design aplikace musí splňovat požadovanou funkčnost. Zároveň musí být rychlý bez zbytečného klikání, které by zpomalovalo práci \cite{helander}.
 
-Je vhodné přizpůsobit vzhled aplikace co nejvíce vzhledu WinMedicalcu, na který jsou pracovníci FN Plzeň zvyklí, a dodržovat již zavedené konvence. Proto jsem zvolil pro grafické uživatelské rozhraní knihovnu WinForms\footnote{System.Windows.Forms} místo novějšího WPF\footnote{Windows Presentation Foundation}.
+Ovládání musí být jednoduché. Funkce by měly být zobrazeny pouze, pokud jsou skutečně potřeba, příliš mnoho funkcí rozptyluje uživatele. Základní funkce by měly být zřejmé na první pohled, méně důležité funkce by měly být v pozadí \cite{saffer}. 
+
+Uživatelské rozhraní by mělo by rozděleno na části, které spolu souvisí. Jednotlivé komponenty by měly mít maximálně výstižné názvy.
+
+Typické chyby návrhu uživatelského rozhraní jsou neutříděný obsah oken a menu, nepatřičný vzhled a nadbytečné grafické prvky \cite{sojka}.
+
+Dále by uživatelské rozhraní mělo být intuitivní, podobné technikám, které již uživatel zná, aby nebylo nutné dlouhé zaškolení zdravotních sester. Proto je vhodné přizpůsobit vzhled aplikace co nejvíce vzhledu WinMedicalcu, na který jsou pracovníci FN Plzeň zvyklí, a dodržovat již zavedené konvence. Z toho důvodu jsem zvolil pro grafické uživatelské rozhraní knihovnu WinForms\footnote{System.Windows.Forms} místo novějšího WPF\footnote{Windows Presentation Foundation}.
 
 
 \section{Uživatelské rozhraní}
