@@ -68,7 +68,7 @@ Tabulku ordinovaných léků tvoří dva DataGridView (viz obrázek \ref{fig:med
 
 První DataGridView zobrazuje název léku a dávkování. Pokud je lék opiát, je políčko názvu léku podbarvebo červeně a pokud je u dávkování poznámka, políčko dávkování je podbarveno světle modře.
 
-Druhý DataGridView zobrazuje tabulku jednotlivých ordinací. 24 sloupců představující jednotlivé hodiny je seřazeno od hodiny definované v konfiguraci jako počáteční hodina. Sloupec aktuální hodiny je podbarven khaki barvou vyjma řádek s ordinací v dané hodině. Ordinace má číselnou hodnotu dle množství, které má být/bylo podáno a je podbarvena:
+Druhý DataGridView zobrazuje tabulku jednotlivých ordinací. Jednotlivé hodiny představuje 24 sloupců, které jsou seřazeny od hodiny definované v konfiguraci jako počáteční hodina. Sloupec aktuální hodiny je podbarven khaki barvou vyjma řádek s ordinací v dané hodině. Ordinace má číselnou hodnotu dle množství, které má být/bylo podáno a je podbarvena:
 
 \begin{itemize}
 	\item Zeleně - provedená ordinace.
@@ -77,11 +77,11 @@ Druhý DataGridView zobrazuje tabulku jednotlivých ordinací. 24 sloupců před
 	\item Fialově - neprovedená ordinace.
 \end{itemize}
 
-Kliknutím na políčko DataGridView se zobrazí dialog podání ordinací (viz kapitola \ref{sec:ordinace} Podání ordinací) s vybranou ordinací (pokud existuje k dané hodině). Po zavření dialogu se aktualizuje celý řádek s lékem. Dvojitým kliknutím se rovnou provede podání ordinace v danou hodinu (podání pouze jednorázové ordinace, ne infuze).
+Kliknutím na políčko DataGridView se zobrazí dialog podání ordinací (viz kapitola \ref{sec:ordinace} Podání ordinací) s vybranou ordinací (pokud existuje k~dané hodině). Po zavření dialogu se aktualizuje celý řádek s lékem. Dvojitým kliknutím se rovnou provede podání ordinace v danou hodinu (podání pouze jednorázové ordinace, ne infuze).
 
 Komponentě DataGridView nelze přiřadit událost Click a DoubleClick tak, aby se při dvojitém kliknutí nevyvolala událost jednoduchého kliknutí. Proto se při prvním kliknutí vytvoří vlákno, které na krátký čas pozastaví vykonání události jednoduchého kliknutí (zobrazení dialogu podání ordinací) a čeká se, jestli v této době uživatel klikne podruhé. Pokud ano, provede se jednorázové podání, pokud ne, zobrazí se dialog podání ordinací.
 
-Vespod záložky je Button pro zobrazení dialogu přidání nového léku (viz kapitola \ref{sec:pridat_lek} Přidání nového léku).
+Vespod záložky je Button pro zobrazení dialogu přidání nového léku (viz~kapitola \ref{sec:pridat_lek} Přidání nového léku).
 
 
 \subsubsection{Podání ordinací}
@@ -98,11 +98,11 @@ Dialog podání ordinací rozložením kopíruje dialog ve WinMedicalc (viz obr�
 
 V prvním řádku je název léku a dávkování.
 
-V druhém řádku prvním sloupci je seznam ordinací daného léku v ListView, v druhém sloupci pak detail vybrané ordinace. Vybráním ordinace ze seznamu (FocusedIndex) se zobrazí její detail. V případě, že se změní některá hodnota ordinace, se při výběru jiné nebo zavření dialogu současná uloží a případně se aktualizuje řádek v ListView.
+V druhém řádku prvním sloupci je seznam ordinací daného léku v ListView, v druhém sloupci pak detail vybrané ordinace. Vybráním ordinace ze seznamu (FocusedIndex) se zobrazí její detail. V případě, že se změní některá hodnota ordinace, se při výběru jiné nebo zavření dialogu současná uloží a aktualizuje se řádek v ListView.
 
 Změna hodin v DateTimePickerech nastane přejetím prstu po komponentě (přímá změna hodnoty není na tabletu vhodná). V okamžiku vstupu do místa DateTimePickeru se uloží y-ová souřadnice, v okamžiku kdy se komponenta opustí, hodina se podle místa opuštění zvýší nebo sníží. Do poznámky lze zapisovat, pouze pokud je stav ordinace nastaven na nepodáno. Pokud ordinace nemá nastaveny vlastní jednotky, zobrazují se jednotky léku.
 
-V posledním řádku jsou tlačítka na přidání nové ordinace, smazání ordinace a zavření dialogu. Button přidání ordinace vytvoří záznam v ListView ordinací, ordinace se uloží až při vybrání jiné ordinace nebo při zavření dialogu. Proto se při mazání ordinace zkontroluje, zda je daná ordinace v paměti. Pokud ano, odešle se požadavek na smazání, pokud ne, odstraní se pouze z ListView. Při zavření dialogu proběhne kontrola, zda právě zobrazená ordinace nebyla změněna, a případně se uloží.
+V posledním řádku jsou tlačítka na přidání nové ordinace, smazání ordinace a zavření dialogu. Button přidání ordinace vytvoří záznam v ListView ordinací, ordinace se uloží až při vybrání jiné ordinace nebo při zavření dialogu. Proto se při mazání ordinace zkontroluje, zda je daná ordinace v paměti. Pokud ano, odešle se požadavek na smazání, pokud ne, odstraní se pouze z~ListView. Při zavření dialogu proběhne kontrola, zda právě zobrazená ordinace nebyla změněna, a případně se uloží.
 
 
 \subsubsection{Přidání nového léku}
@@ -124,7 +124,7 @@ Po zavření dialogu se nový lék přidá na poslední řádku v medikační ka
 
 \subsection{Denní bilance tekutin}
 
-Záložka denní bilance tekutin (na obrázku \ref{fig:bilance_den}) zobrazuje bilanci tekutin za celý den. Je rozdělena SplitContainerem na tekutiny příjmu (zelená) a tekutiny výdeje (červená). Každá tekutina má dva TextBoxy, první zobrazuje celkovou hodnotu za den (lze zadat novou hodnotu větší než původní), v druhém lze přičíst nově naměřenou hodnotu. Poslední hodnotou je celkový součet příjmu nebo výdeje všech tekutin.
+Záložka denní bilance tekutin (na obrázku \ref{fig:bilance_den}) zobrazuje bilanci tekutin za celý den. Je rozdělena SplitContainerem na tekutiny příjmu (zelená) a tekutiny výdeje (červená). Každá tekutina má dva TextBoxy, první zobrazuje celkovou hodnotu za den (lze zadat novou hodnotu větší než původní), v~druhém lze přičíst nově naměřenou hodnotu. Poslední hodnotou je celkový součet příjmu nebo výdeje všech tekutin.
 
 Jednotlivé tekutiny jsou v paměti indexovány podle enumu \emph{Tekutiny}. Stejně tak jsou indexovány TextBoxy (TabIndex). Jelikož pole celkové hodnoty a pole pro zadání nově naměřené hodnoty jedné tekutiny náleží jednomu indexu v paměti (ale stále je nutné oba TextBoxy rozlišit), přičte se k indexu pole nové hodnoty konstanta 100 (při předávání hodnoty se odečte). Při ukládání hodnot se předává index TextBoxu a hodnota.
 
@@ -150,7 +150,7 @@ Jednotlivé tekutiny jsou v paměti indexovány podle enumu \emph{Tekutiny}. Ste
   \label{fig:bilance_hod}
 \end{figure}
 
-Dialog s hodinovým detailem tekutiny obsahuje DataGridView s dvěma sloupci (hodina, hodnota). Vespod pak je součet všech hodinových hodnot dané tekutiny a tlačítko zavřít. Hodnoty k jednotlivým hodinám lze zadat kliknutím na dané políčko DataGridView. V hodinu lze zadat pouze jednu hodnotu.
+Dialog s hodinovým detailem tekutiny obsahuje DataGridView s dvěma sloupci (hodina, hodnota). Vespod pak je součet všech hodinových hodnot dané tekutiny a tlačítko zavřít. Hodnoty k jednotlivým hodinám lze zadat kliknutím na dané políčko DataGridView. V každou hodinu lze zadat hodnotu pouze jedenkrát.
 
 \begin{figure}[H]
 	\centering
@@ -167,7 +167,7 @@ Hodnoty se musí uložit kliknutím na Button \emph{Uložit}. Pokud uživatel p�
 
 V záložce invazivních přístupů (obrázek \ref{fig:invaz_pristup}) je každý invazivní přístup reprezentován vytvořenou komponentou PristupPanel, která dědí od FlowLayoutPanelu. V PristupPanelu jsou veškeré komponenty s informacemi o daném invazivním přístupu (ComboBoxy, TextBoxy, DateTimePicker) a ovládací tlačítka (Vyměnit, Aktualizuj, Vymaž). Panel je na střídačku podbarven ve dvou odstínech světle šedé pro lepší přehlednost.
 
-První panel je pouze s Labely označujícími uspořádání komponent. Poslední panel umožňuje přidání nového invazivního přístupu. Tento panel má místo ovládacích tlačítek Button \emph{Přidat}. Přidáním nového invazivního přístupu se přístup uloží, místo Buttonu \emph{Přidat} zobrazí ovládací tlačítka a do záložky se přidá nový PristupPanel pro přidání dalšího přístupu.
+První panel je pouze s Labely označujícími uspořádání komponent. Poslední panel umožňuje přidání nového invazivního přístupu. Tento panel má místo ovládacích tlačítek Button \emph{Přidat}. Přidáním nového invazivního přístupu se přístup uloží, místo Buttonu \emph{Přidat} zobrazí ovládací tlačítka a do~záložky se přidá nový PristupPanel pro přidání dalšího přístupu.
 
 \begin{figure}[H]
 	\centering
@@ -178,7 +178,7 @@ První panel je pouze s Labely označujícími uspořádání komponent. Posledn
 
 Scrollování tažením prstem na tabletu ve WinForms nereaguje správně. Vyvolá se scrollovací událost vrchní komponenty, ne kontejneru, ve kterém jsou komponenty umístěny. To jsem vyřešil vytvořením MessageFiltru \emph{MouseFilter} a \emph{TouchableLayoutPanelu}.
 
-MouseFilter monitoruje systémové události, konkrétně stisk levého tlačítka myši (kliknutí prstem), uvolnění levého tlačítka myši a pohyb myši, a odešle je do jejich destinace (tj. komponenta, která se u MouseFilteru zaregistruje jako posluchač). 
+MouseFilter monitoruje systémové události, konkrétně stisk levého tlačítka myši (kliknutí prstem), uvolnění levého tlačítka myši a pohyb myši, a~odešle je do jejich destinace (tj. komponenta, která se u MouseFilteru zaregistruje jako posluchač). 
 
 TouchableFlowLayoutPanel dědí od FlowLayoutPanelu, a má tak stejné vlastnosti. Při jeho vytvoření zaregistruje reakce na scrollování (nastavení scrollovacího offsetu dle pohybu myši) událostem MouseFilteru. Stejně tak se musí zaregistrovat každý PristupPanel (nastavení scrollovacího offsetu rodičovského kontejneru).
 

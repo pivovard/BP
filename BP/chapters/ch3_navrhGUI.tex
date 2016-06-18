@@ -5,7 +5,7 @@ Od vyvíjené aplikace je vyžadována vysoká spolehlivost. Proto musí být pe
 
 \section{Architektura}
 
-Aplikace je rozdělena do tří vrstev (viz obrázek \ref{fig:architektura}. Vrstva přístupu k databázi se stará o spojení s databází, stahování a odesílání dat. Logická vrstva se stará o zpracování dat z databáze do formy, která je zobrazitelná v uživatelském rozhraní, a poskytuje uživatelskému rozhraní prostředky pro práci s daty. Také ošetřuje zadávání nekorektních dat. Vrstva uživatelského rozhraní se stará o zobrazení dat uživateli a umožňuje mu manipulaci s daty.
+Aplikace je rozdělena do tří vrstev (viz obrázek \ref{fig:architektura}. Vrstva přístupu k databázi se stará o spojení s databází, stahování a odesílání dat. Logická vrstva se stará o zpracování dat z databáze do formy, která je zobrazitelná v uživatelském rozhraní, a poskytuje uživatelskému rozhraní prostředky pro práci s~daty. Také ošetřuje zadávání nekorektních dat. Vrstva uživatelského rozhraní se stará o zobrazení dat uživateli a umožňuje mu manipulaci s daty.
 
 \begin{figure}[H]
 	\centering
@@ -23,7 +23,7 @@ Uživatelské rozhraní zjednodušuje skutečné procesy v počítači a zprost�
 
 Ovládání musí být jednoduché. Funkce by měly být zobrazeny pouze, pokud jsou skutečně potřeba, příliš mnoho funkcí rozptyluje uživatele. Základní funkce by měly být zřejmé na první pohled, méně důležité funkce by měly být v pozadí \cite{saffer}. 
 
-Uživatelské rozhraní by mělo by rozděleno na části, které spolu souvisí. Jednotlivé komponenty by měly mít maximálně výstižné názvy.
+Uživatelské rozhraní by mělo být rozděleno na části, které spolu souvisí. Jednotlivé komponenty by měly mít maximálně výstižné názvy.
 
 Typické chyby návrhu uživatelského rozhraní jsou neutříděný obsah oken a menu, nepatřičný vzhled a nadbytečné grafické prvky \cite{sojka}.
 
@@ -32,7 +32,7 @@ Dále by uživatelské rozhraní mělo být intuitivní, podobné technikám, kt
 
 \section{Uživatelské rozhraní}
 
-Aplikace je určena pro tablet, kdy má vyplňovat celou plochu obrazovky s minimem prázdného prostoru. Komponenty by měly mít větší velikost pro snazší ovládání na tabletu.
+Aplikace je určena pro tablet, kdy má vyplňovat celou plochu obrazovky s~minimem prázdného prostoru. Komponenty by měly mít větší velikost pro snazší ovládání na tabletu.
 
 \subsection{Přihlášení}
 
@@ -48,7 +48,7 @@ V horní části obrazovky bude menu s možností odhlášení uživatele a zobr
 
 Po výběru pacienta se zobrazí obrazovka s jednotlivými záložkami. Záložky jsou Medikace, Denní bilance tekutin, Hodinová bilance tekutin a Invazivní přístupy. K dispozici bude vždy jen jedna varianta bilance tekutin dle oddělení, na kterém se tablet nachází (bude určeno v nastavení aplikace).
 
-V dolní části obrazovky bude statusbar s informacemi o přihlášeném uživateli, vybraném pacientovi a verzí aplikace. Vpravo pak tlačítko pro návrat k výběru pacientů a tlačítko oprav.
+V dolní části obrazovky bude statusbar s informacemi o přihlášeném uživateli, vybraném pacientovi a s verzí aplikace. Vpravo pak tlačítko pro návrat k výběru pacientů a tlačítko oprav.
 
 \subsubsection{Ordinované léky}
 
@@ -56,7 +56,7 @@ Záložka ordinovaných léků bude podobná tištěné medikační kartě. Jedn
 
 \subsubsection{Denní bilance tekutin}
 
-Denní bilance tekutin bude rozdělena na dvě části pro příjem a výdej tekutin stejně jako tomu je ve WinMedicalcu. Příjem tekutin bude podbarven zeleně, bude obsahovat 7 položek, celkový součet a tlačítko pro uložení dat. Výdej tekutin bude podbarven červeně, bude obsahovat 5 položek, celkový součet a tlačítko pro uložení dat. U každé položky bude textové pole pro zadání nové celkové hodnoty a textové pole pro zadání nové hodnoty, která se přičte k původní.
+Denní bilance tekutin bude rozdělena na dvě části pro příjem a výdej tekutin stejně jako tomu je ve WinMedicalcu. Příjem tekutin bude podbarven zeleně, bude obsahovat 7 položek, celkový součet a~tlačítko pro uložení dat. Výdej tekutin bude podbarven červeně, bude obsahovat 5 položek, celkový součet a tlačítko pro uložení dat. U každé položky bude textové pole pro zadání nové celkové hodnoty a textové pole pro zadání nové hodnoty, která se přičte k~původní.
 
 \subsubsection{Hodinová bilance tekutin}
 

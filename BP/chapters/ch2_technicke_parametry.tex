@@ -14,13 +14,13 @@ Aplikace má pět částí:
 \end{itemize}
 \parskip=1em
 
-Medikační karta nahrazuje tištěnou medikační kartu. Její vzhled odpovídá tištěné formě (tabulka se seznamem léků a jednotlivýma hodinama). Podání ordinovaného léku se bude moci provést DoubleClickem, nebo se jednoduchým kliknutím zobrazí dialog, ve kterém může uživatel editovat jednotlivé ordinace daného léku.
+Medikační karta nahrazuje tištěnou medikační kartu. Její vzhled odpovídá tištěné formě (tabulka se seznamem léků a jednotlivými hodinami). Podání ordinovaného léku se bude moci provést DoubleClickem, nebo se jednoduchým kliknutím zobrazí dialog, ve kterém může uživatel editovat jednotlivé ordinace daného léku.
 
 Denní bilance tekutin odpovídá bilanci tekutin ve WinMedicalc. Umožňuje zadávat množství příjmu a výdeje tekutin (celkovou hodnotu nebo nově naměřenou hodnotu)
 
 Hodinová bilance tekutin je podobná denní bilanci tekutin. Ukazuje příjem a výdej tekutin v danou hodinu. Dále umožňuje zobrazit příjem a výdej tekutin ve všech hodinách.
 
-Záložka invazivních přístumů odpovídajá invazivním přístupům ve WinMedicalcu. Zobrazuje zavedené invazivní přístupy a jejich popis. Umožňuje přístupy editovat, označit požadavkem na výměnu, přidat a smazat.
+Záložka invazivních přístupů odpovídá invazivním přístupům ve WinMedicalcu. Zobrazuje zavedené invazivní přístupy a jejich popis. Umožňuje přístupy editovat, označit požadavkem na výměnu, přidat a smazat.
 
 Záložka fyziologie zobrazuje záznamy životních funkcí pacienta. Záznamy lze přidat, editovat, nebo smazat.
 
@@ -41,7 +41,7 @@ S vyvíjenou aplikací budou pracovat výhradně zdravotní sestry. Použití ap
 
 \section{Technické parametry}
 
-Aplikace běží na systému Microsoft Windows 8.1 64bit. Je vyvíjená na platformě Microsoft .NET Framework 4.5 v jazyce C\#.
+Aplikace běží na systému Microsoft Windows 8.1 64bit. Je vyvíjená na platformě Microsoft .NET Framework 4.5 v jazyce C\# \cite{msdn}.
 
 Aplikace je kompatibilní s informačním systémem FN Plzeň a bude doplňovat program WinMedicalc. Systémová integrita mezi oběmi aplikacemi není, pouze jsou využity některé funkční prvky WinMedicalcu.
 
@@ -66,7 +66,7 @@ Specifikace:
 
 \section{Databáze}
 
-Přístup do databáze FN Plzeň je pouze ze zařízení, které jsou připojeny k doméně FN Plzeň. Proto byla část databáze potřebná pro vývoj aplikace zkopírována do nového tablespace v Oracle databázi na ZČU. Tabulky, ke kterým aplikace MediTab přistupuje jsou v ERA modelu na obrázku \ref{fig:era}. Kopie databáze je naplněna fiktivními testovacími daty, které odpovídají realným datům.
+Přístup do databáze FN Plzeň je pouze ze zařízení, které jsou připojeny k~doméně FN Plzeň. Proto byla část databáze potřebná pro vývoj aplikace zkopírována do nového tablespace v Oracle databázi na ZČU. Tabulky, ke kterým aplikace MediTab přistupuje jsou v ERA modelu na obrázku \ref{fig:era}. Kopie databáze je naplněna fiktivními testovacími daty, které odpovídají realným datům.
 
 \begin{figure}[H]
 	\centering
